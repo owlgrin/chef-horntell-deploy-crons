@@ -1,6 +1,6 @@
 name             'horntell-crons'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Mohit Mamoria'
+maintainer_email 'mohit.mamoria@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures horntell-crons'
 long_description 'Installs/Configures horntell-crons'
