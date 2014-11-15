@@ -1,10 +1,10 @@
 # horntell-crons-cookbook
 
-TODO: Enter the cookbook description here.
+Deploys the Horntell Cronjobs
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Ubuntu.
 
 ## Attributes
 
