@@ -37,6 +37,15 @@ Include `horntell-crons` in your node's `run_list`:
 }
 ```
 
+or
+
+```json
+{
+  "run_list": [
+    "recipe[horntell-crons::web]"
+  ]
+}
+```
 ## License and Authors
 
 Author:: Mohit Mamoria (mohit.mamoria@gmail.com)
