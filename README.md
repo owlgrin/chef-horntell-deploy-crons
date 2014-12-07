@@ -4,7 +4,7 @@ Deploys the Horntell Cronjobs
 
 ## Supported Platforms
 
-Ubuntu.
+Ubuntu 14.04.
 
 ## Attributes
 
