@@ -63,7 +63,7 @@ end
 
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:date-trigger --env=production > /var/log/horntell/campaign.date-trigger.log
 cron 'CRON - campaign date-trigger' do
-	minute '*/30'
+	minute '*/30' # every half hour
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:date-trigger --env=production > /var/log/horntell/campaign.date-trigger.log"
 	action :create
 end
