@@ -49,14 +49,14 @@ end
 
 # */5 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan horn:stats --env=production > /var/log/horntell/horn.stats.log
 cron 'CRON - horn stats' do
-	minute '*/5'
+	minute '*/5' # every five minutes
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan horn:stats --env=production > /var/log/horntell/horn.stats.log"
 	action :create
 end
 
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:autorun --env=production > /var/log/horntell/campaign.autorun.log
 cron 'CRON - campaign autorun' do
-	minute '*/30'
+	minute '*/30' # every half hour
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:autorun --env=production > /var/log/horntell/campaign.autorun.log"
 	action :create
 end
