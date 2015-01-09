@@ -32,7 +32,7 @@ end
 
 # */2 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:last-fires --env=production > /var/log/horntell/campaign.last-fires.log
 cron 'CRON - campaign last fires' do
-	minute '*/2'
+	minute '*/2' # every two minutes
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:last-fires --env=production > /var/log/horntell/campaign.last-fires.log"
 	action :create
 end
