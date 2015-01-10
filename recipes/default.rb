@@ -23,8 +23,8 @@ end
 
 # 10 0 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan segments:count --env=production > /var/log/horntell/segments.count.log
 cron 'CRON - segments count' do
-	minute '10'
-	hour '0'
+	minute '10' # at 00:10 am everyday
+	hour '0' # at 00:10 am everyday
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan segments:count --env=production > /var/log/horntell/segments.count.log"
 	action :create
 end
