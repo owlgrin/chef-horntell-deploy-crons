@@ -15,8 +15,8 @@ end
 
 # 0 0 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan segments:refresh --env=production > /var/log/horntell/segments.refresh.log
 cron 'CRON - segments refresh' do
-	minute '0'
-	hour '0'
+	minute '0' # at midnight
+	hour '0' # at midnight
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan segments:refresh --env=production > /var/log/horntell/segments.refresh.log"
 	action :create
 end
