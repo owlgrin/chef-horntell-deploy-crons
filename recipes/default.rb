@@ -7,8 +7,8 @@ end
 
 # 30 0 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan metrics:seed --env=production > /var/log/horntell/metrics.seed.log
 cron 'CRON - metrics seed' do
-	minute '30'
-	hour '0'
+	minute '30' # at half past midnight
+	hour '0' # at half past midnight
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan metrics:seed --env=production > /var/log/horntell/metrics.seed.log"
 	action :create
 end
