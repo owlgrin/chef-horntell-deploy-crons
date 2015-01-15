@@ -1,6 +1,6 @@
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:fire --env=production > /var/log/horntell/campaign.fire.log
 cron 'CRON - campaign fire' do
-	minute '*/30'
+	minute '*/30' # every 30 minutes
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:fire --env=production > /var/log/horntell/campaign.fire.log"
 	action :create
 end
