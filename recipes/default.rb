@@ -84,10 +84,10 @@ cron 'CRON - throttle add next subscription period' do
 	action :create
 end
 
-# 0 12 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan cashew:ping-user-expiring-card --intervals=30,29,15,7,3,1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log
+# 0 12 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan cashew:ping-user-expiring-card 30 15 7 3 1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log
 cron 'CRON - throttle add next subscription period' do
 	minute '0' # at 1200 everyday
 	hour '12' # at 1200 everyday
-	command "/usr/bin/php /home/ubuntu/apps/core/artisan cashew:ping-user-expiring-card --intervals=30,29,15,7,3,1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log"
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan cashew:ping-user-expiring-card 30 29 15 7 3 1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log"
 	action :create
 end
