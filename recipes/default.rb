@@ -67,3 +67,27 @@ cron 'CRON - campaign date-trigger' do
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:date-trigger --env=production > /var/log/horntell/campaign.date-trigger.log"
 	action :create
 end
+
+# 0 23 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan throttle:seed-base-usage --env=production > /var/log/horntell/throttle.seed-base-usage.log
+cron 'CRON - throttle seed base usage' do
+	minute '0' # at 2300 everyday
+	hour '23' # at 2300 everyday
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan throttle:seed-base-usage --env=production > /var/log/horntell/throttle.seed-base-usage.log"
+	action :create
+end
+
+# 0 12 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan throttle:add-subscription-period --env=production > /var/log/horntell/throttle.add-subscription-period.log
+cron 'CRON - throttle add next subscription period' do
+	minute '0' # at 1200 everyday
+	hour '12' # at 1200 everyday
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan throttle:add-subscription-period --env=production > /var/log/horntell/throttle.add-subscription-period.log"
+	action :create
+end
+
+# 0 12 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan cashew:ping-user-expiring-card --intervals=30,29,15,7,3,1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log
+cron 'CRON - throttle add next subscription period' do
+	minute '0' # at 1200 everyday
+	hour '12' # at 1200 everyday
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan cashew:ping-user-expiring-card --intervals=30,29,15,7,3,1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log"
+	action :create
+end
