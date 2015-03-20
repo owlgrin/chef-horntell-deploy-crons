@@ -1,9 +1,9 @@
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:fire --env=production > /var/log/horntell/campaign.fire.log
-cron 'CRON - campaign fire' do
-	minute '*/30' # every 30 minutes
-	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:fire --env=production > /var/log/horntell/campaign.fire.log"
-	action :create
-end
+# cron 'CRON - campaign fire' do
+# 	minute '*/30' # every 30 minutes
+# 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:fire --env=production > /var/log/horntell/campaign.fire.log"
+# 	action :create
+# end
 
 # 30 0 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan metrics:seed --env=production > /var/log/horntell/metrics.seed.log
 cron 'CRON - metrics seed' do
@@ -55,18 +55,18 @@ cron 'CRON - horn stats' do
 end
 
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:autorun --env=production > /var/log/horntell/campaign.autorun.log
-cron 'CRON - campaign autorun' do
-	minute '*/30' # every half hour
-	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:autorun --env=production > /var/log/horntell/campaign.autorun.log"
-	action :create
-end
+# cron 'CRON - campaign autorun' do
+# 	minute '*/30' # every half hour
+# 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:autorun --env=production > /var/log/horntell/campaign.autorun.log"
+# 	action :create
+# end
 
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:date-trigger --env=production > /var/log/horntell/campaign.date-trigger.log
-cron 'CRON - campaign date-trigger' do
-	minute '*/30' # every half hour
-	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:date-trigger --env=production > /var/log/horntell/campaign.date-trigger.log"
-	action :create
-end
+# cron 'CRON - campaign date-trigger' do
+# 	minute '*/30' # every half hour
+# 	command "/usr/bin/php /home/ubuntu/apps/core/artisan campaign:date-trigger --env=production > /var/log/horntell/campaign.date-trigger.log"
+# 	action :create
+# end
 
 # 0 23 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan throttle:seed-base-usage --env=production > /var/log/horntell/throttle.seed-base-usage.log
 cron 'CRON - throttle seed base usage' do
@@ -81,6 +81,14 @@ cron 'CRON - throttle add next subscription period' do
 	minute '0' # at 1200 everyday
 	hour '12' # at 1200 everyday
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan throttle:add-subscription-period --env=production > /var/log/horntell/throttle.add-subscription-period.log"
+	action :create
+end
+
+# 0 1 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan cashew:expire --env=demo > /var/log/horntell/cashew.expire.log
+cron 'CRON - expire the canceled subscriptions' do
+	minute '0' # at 0100 everyday
+	hour '1' # at 0100 everyday
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan cashew:expire --env=production > /var/log/horntell/cashew.expire.log"
 	action :create
 end
 
