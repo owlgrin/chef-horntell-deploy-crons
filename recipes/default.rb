@@ -99,3 +99,11 @@ cron 'CRON - ping users with expiring cards' do
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan cashew:ping-user-expiring-card 30 29 15 7 3 1 --env=production > /var/log/horntell/cashew.ping-expiring-cards.log" # intervals are separated with spaces
 	action :create
 end
+
+# 0 12 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan dripper:send --env=production > /var/log/horntell/dripper.send.log
+cron 'CRON - send drip emails' do
+	minute '0' # at 1200 everyday
+	hour '12' # at 1200 everyday
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan dripper:send --env=production > /var/log/horntell/dripper.send.log"
+	action :create
+end
