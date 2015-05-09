@@ -54,6 +54,14 @@ cron 'CRON - horn stats' do
 	action :create
 end
 
+# 0 0 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan horntell:remind-referrer --env=production > /var/log/horntell/referral.remind-referrer.log
+cron 'CRON - horn stats' do
+	minute '0' # at 00:00
+	minute '0' # at 00:00
+	command "/usr/bin/php /home/ubuntu/apps/core/artisan horntell:remind-referrer --env=production > /var/log/horntell/referral.remind-referrer.log"
+	action :create
+end
+
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/core/artisan campaign:autorun --env=production > /var/log/horntell/campaign.autorun.log
 # cron 'CRON - campaign autorun' do
 # 	minute '*/30' # every half hour
