@@ -55,7 +55,7 @@ cron 'CRON - horn stats' do
 end
 
 # 0 0 * * * /usr/bin/php /home/rhino/code/horntell/core/artisan horntell:remind-referrer --env=production > /var/log/horntell/referral.remind-referrer.log
-cron 'CRON - horn stats' do
+cron 'CRON - horn remind referrer' do
 	minute '0' # at 00:00
 	minute '0' # at 00:00
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan horntell:remind-referrer --env=production > /var/log/horntell/referral.remind-referrer.log"
