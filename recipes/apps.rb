@@ -28,11 +28,11 @@ cron 'CRON - BASECAMP - upcoming events' do
 	action :create
 end
 
-# 30 0 * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan basecamp:refresh-acces-token --env=demo >> /var/log/horntell-apps/basecamp-refresh-access-token.log
+# 30 0 * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan basecamp:refresh-access-token --env=demo >> /var/log/horntell-apps/basecamp-refresh-access-token.log
 cron 'CRON - BASECAMP - refresh access token' do
 	minute '30'
 	hour '0'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:refresh-acces-token --env=production >> /var/log/horntell-apps/basecamp-refresh-access-token.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:refresh-access-token --env=production >> /var/log/horntell-apps/basecamp-refresh-access-token.log"
 	action :create
 end
 
