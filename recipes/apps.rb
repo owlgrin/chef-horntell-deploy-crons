@@ -1,14 +1,14 @@
 # */15 * * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan basecamp:listen-activities --interval=15 --env=demo >> /var/log/horntell-apps/basecamp-listen-activities.log
 cron 'CRON - BASECAMP - listen activities' do
 	minute '*/15' # every 15 mins
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:listen-activities --interval=15 --env=production >> /var/log/horntell-apps/basecamp-listen-activities.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:listen-activities --interval=15 --session_time=10 --env=production >> /var/log/horntell-apps/basecamp-listen-activities.log"
 	action :create
 end
 
 # */30 * * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan basecamp:add-user-account --env=demo >> /var/log/horntell-apps/basecamp-add-user-accounts.log
 cron 'CRON - BASECAMP - add user account' do
 	minute '*/30' # every 30 mins
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:add-user-account --env=production >> /var/log/horntell-apps/basecamp-add-user-accounts.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:add-user-account --session_time=10 --env=production >> /var/log/horntell-apps/basecamp-add-user-accounts.log"
 	action :create
 end
 
@@ -16,7 +16,7 @@ end
 cron 'CRON - BASECAMP - due todos' do
 	minute '0'
 	hour '0'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:listen-due-todos --env=production >> /var/log/horntell-apps/basecamp-due-todos.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:listen-due-todos --session_time=10 --env=production >> /var/log/horntell-apps/basecamp-due-todos.log"
 	action :create
 end
 
@@ -24,7 +24,7 @@ end
 cron 'CRON - BASECAMP - upcoming events' do
 	minute '10'
 	hour '0'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:listen-upcoming-events --env=production >> /var/log/horntell-apps/basecamp-upcoming-events.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:listen-upcoming-events --session_time=5 --env=production >> /var/log/horntell-apps/basecamp-upcoming-events.log"
 	action :create
 end
 
@@ -32,14 +32,14 @@ end
 cron 'CRON - BASECAMP - refresh access token' do
 	minute '30'
 	hour '0'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:refresh-access-token --env=production >> /var/log/horntell-apps/basecamp-refresh-access-token.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan basecamp:refresh-access-token --session_time=10 --env=production >> /var/log/horntell-apps/basecamp-refresh-access-token.log"
 	action :create
 end
 
 # */15 * * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan producthunt:list-notifications --env=demo >> /var/log/horntell-apps/producthunt-list-notifications.log
 cron 'CRON - PRODUCTHUNT - list notifications' do
 	minute '*/15'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:list-notifications --env=production >> /var/log/horntell-apps/producthunt-list-notifications.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:list-notifications --session_time=10 --env=production >> /var/log/horntell-apps/producthunt-list-notifications.log"
 	action :create
 end
 
@@ -47,7 +47,7 @@ end
 cron 'CRON - PRODUCTHUNT - top products' do
 	minute '30'
 	hour '0'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:top-products --env=production >> /var/log/horntell-apps/producthunt-top-products.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:top-products --session_time=10 --session_time=10 --session_time=10 --env=production >> /var/log/horntell-apps/producthunt-top-products.log"
 	action :create
 end
 
@@ -55,7 +55,7 @@ end
 cron 'CRON - PRODUCTHUNT - expiring users' do
 	minute '30'
 	hour '0'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:send-notification-to-expiring-user '7,3,1' --env=production >> /var/log/horntell-apps/producthunt-expiring-users.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:send-notification-to-expiring-user '7,3,1' --session_time=10 --session_time=10 --env=production >> /var/log/horntell-apps/producthunt-expiring-users.log"
 	action :create
 end
 
@@ -63,6 +63,6 @@ end
 cron 'CRON - MAILCHIMP - add hooks to list' do
 	minute '30'
 	hour '1'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan mailchimp:add-new-list-to-hook --env=production >> /var/log/horntell-apps/mailchimp-add-hook-to-list.log"
+	command "/usr/bin/php /home/ubuntu/apps/apps/artisan mailchimp:add-new-list-to-hook --session_time=10 --env=production >> /var/log/horntell-apps/mailchimp-add-hook-to-list.log"
 	action :create
 end
