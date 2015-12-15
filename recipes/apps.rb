@@ -37,11 +37,11 @@ cron 'CRON - BASECAMP - refresh access token' do
 end
 
 # */15 * * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan producthunt:list-notifications --env=demo >> /var/log/horntell-apps/producthunt-list-notifications.log
-cron 'CRON - PRODUCTHUNT - list notifications' do
-	minute '*/15'
-	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:list-notifications --session_time=10 --env=production >> /var/log/horntell-apps/producthunt-list-notifications.log"
-	action :create
-end
+# cron 'CRON - PRODUCTHUNT - list notifications' do
+# 	minute '*/15'
+# 	command "/usr/bin/php /home/ubuntu/apps/apps/artisan producthunt:list-notifications --session_time=10 --env=production >> /var/log/horntell-apps/producthunt-list-notifications.log"
+# 	action :create
+# end
 
 # 30 0 * * * /usr/bin/php /home/rhino/code/horntell/apps/artisan producthunt:top-products --env=demo >> /var/log/horntell-apps/producthunt-top-products.log
 cron 'CRON - PRODUCTHUNT - top products' do
