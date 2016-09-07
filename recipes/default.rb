@@ -115,3 +115,10 @@ cron 'CRON - send drip emails' do
 	command "/usr/bin/php /home/ubuntu/apps/core/artisan dripper:send --env=production > /var/log/horntell/dripper.send.log"
 	action :create
 end
+
+# sync time of the server with the NTP server
+cron 'CRON - sync time' do
+	minute '*/30' # every 30 minutes
+	command "sudo ntpdate pool.ntp.org"
+	action :create
+end
